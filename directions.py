@@ -73,6 +73,7 @@ def search(my_map):
         ddirections.insert(0, cur_node)
 
     # Print out the driving directions
+    print('## Solution ##')
     print(f'Starting at {ddirections[0].state}')
     ddirections.pop(0)
     for n in ddirections:
@@ -96,13 +97,6 @@ def main():
 
     print('\nStarting the search')
     search(my_map)
-
-    print('\nSolution')
-    for i in range(my_map.height+2):
-        for j in range(my_map.width+2):
-            if my_map.grid[i][j].content == '#':
-                my_map.grid[i][j].content = ' '
-    print(my_map)
 
 if __name__ == '__main__':
     main()

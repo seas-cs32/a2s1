@@ -48,8 +48,8 @@ def main():
     my_map = maze.Maze(maze.MAZE_map, maze.MAZE_map_endpts)
 
     # Make it easier to see the roads
-    for i in range(my_map.height):
-        for j in range(my_map.width):
+    for i in range(my_map.height+2):
+        for j in range(my_map.width+2):
             c = my_map.grid[i][j]
             if c.north and c.south and c.east and c.west:
                 c.content = '#'
@@ -59,11 +59,13 @@ def main():
     print('\nStarting the search')
     search(my_map)
 
-    print('\nSolution')
-    for i in range(my_map.height):
-        for j in range(my_map.width):
+    # Erase the non-road marks
+    for i in range(my_map.height+2):
+        for j in range(my_map.width+2):
             if my_map.grid[i][j].content == '#':
                 my_map.grid[i][j].content = ' '
+
+    print('\nSolution')
     print(my_map)
 
 if __name__ == '__main__':
